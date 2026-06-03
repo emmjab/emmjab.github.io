@@ -1,7 +1,7 @@
 ---
 layout: post
 title: cloud classifying
-date: 2026-06-03 20:35 -0400
+date: 2026-06-03 15:35 -0400
 ---
 
 # Classifying some clouds online
