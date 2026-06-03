@@ -1,7 +1,7 @@
 ---
 layout: post
 title: cloud classifying
-date: 2026-06-02 20:35 -0400
+date: 2026-06-03 20:35 -0400
 ---
 
 # Classifying some clouds online
@@ -41,8 +41,8 @@ If the idea is to train models in this repo though, huggingface probably has som
 Oh yeah, they do: "Do you have files larger than 10MB? Those files should be tracked with git-xet, which you can initialize with:
 `git xet install`". Never heard of it. Hello 2026 and the rock I've been living under for the past six years.
 
-But it looks like they've also moved on from pickles to something called `safetensors`.  https://huggingface.co/docs/safetensors/index
-It's not like huggingface is incompatible with fastai: https://huggingface.co/docs/hub/en/fastai
+But it looks like they've also moved on from pickles to something called [`safetensors`](https://huggingface.co/docs/safetensors/index).
+It's not like huggingface is [incompatible with fastai](https://huggingface.co/docs/hub/en/fastai).
 
 ## Ok I'm not going ot go nuts here
 
@@ -76,9 +76,8 @@ No, of course not.
 2. the blog code has some issues due to "bitrot", mostly with the args for gradio's `gr.Interface()`. I just copy-pasted the failure log messages from the hf site gui into chatgpt to figure out what the changes should be. I tried to ask Claude first but it was like, "honestly, I might not be up to date with the latest..." blah blah blah ok Claude thanks for expressing your limitations.
 
 I should have probably run this locally before pushing to hf but I didn't set up a `.venv` (and added a `.gitignore`) until a few errors in.
-Luckily the hf code tree has a great interface for checking the status & the logs! https://huggingface.co/spaces/emmjab/dllearning/tree/main
+Luckily the hf code tree has a great interface for [checking the status & the logs](https://huggingface.co/spaces/emmjab/dllearning/tree/main)! 
 
 Anyway to run locally you just have to start the venv and then call `python app.py` but fyi for the sake of time I didn't try that yet.
 
-Because now my cloud classifier is live! I tried it and it works!
-https://huggingface.co/spaces/emmjab/dllearning
+Because now my cloud classifier is live! I tried it and it works! [Check it out here!](https://huggingface.co/spaces/emmjab/dllearning)
