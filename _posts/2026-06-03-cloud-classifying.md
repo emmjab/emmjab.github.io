@@ -6,7 +6,9 @@ date: 2026-06-03 15:35 -0400
 
 # Classifying some clouds online
 
-TL;DR check it out on my [Deep Learning Learning space](https://huggingface.co/spaces/emmjab/dllearning)) on huggingface.
+## This is a stream of consciousness version of my process for getting the cloud model i trained online
+
+TL;DR try out the model I fine-tuned for classifying clouds at [Deep Learning Learning space](https://huggingface.co/spaces/emmjab/dllearning) on huggingface.
 
 According to lesson 2, the latest and greatest way to put models on the web is no longer jupyter with binder,
 but now hugging face and gradio.

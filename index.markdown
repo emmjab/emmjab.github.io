@@ -4,4 +4,4 @@
 
 layout: home
 ---
-Just checking where this appears.
+Posts on Programming.
