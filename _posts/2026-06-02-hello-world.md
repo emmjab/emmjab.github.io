@@ -28,7 +28,8 @@ In 2018, the authors published a wrapper/utility library around pytorch called "
 various data pre-processing among other things. The course materials teach the principles of deep learning 
 through this library and pytorch. They also peel back the layers of the libraries to build deep learning models from scratch.
 
-In 2019, the University of San Francisco launched the Center for Applied Data Ethics directed by Rachel Thomas.
+In 2019, the University of San Francisco launched the Center for Applied Data Ethics (CADE) - rebranded in 2023 as 
+[Center for AI & Data Ethics (CAIDE)](https://www.usfca.edu/data-institute/centers-initiatives/caide) initially directed by Rachel Thomas.
 
 In 2020, the authors published a [paper on the fastai library](https://www.mdpi.com/2078-2489/11/2/108) 
 and released the fastai book,
@@ -46,21 +47,21 @@ It's 2026 and fastai has had [many new blog posts](https://www.fast.ai/) but no 
 
 ## What material is covered?
 
-The lessons are available at https://course.fast.ai/.
+The lessons are available at <https://course.fast.ai/>.
 
 Each lesson link includes:
 - a 1.5h video lecture recorded by Jeremy Howard
   - Part 1, general intro; lectures posted Jul 2022, recorded at the University of Queensland in Brisbane, Australia ([youtube](https://www.youtube.com/playlist?list=PLfYUBJiXbdtSvpQjSnJJ_PmDQB_VyT5iU)).
   - Part 2, stable diffusion; lectures posted Oct 2022 & Apr 2023 ([youtube](https://www.youtube.com/playlist?list=PLfYUBJiXbdtRUvTUYpLdfHHp9a58nWVXP)).
 - chapter(s) to read/run from one or both course material repos (each a jupyter notebook)
-  - "fastbook" - course textbook, 2020: https://github.com/fastai/fastbook
-  - "course22" - course lecture companion, 2022: https://github.com/fastai/course22
+  - "fastbook" - course textbook, 2020: <https://github.com/fastai/fastbook>
+  - "course22" - course lecture companion, 2022: <https://github.com/fastai/course22>
 - supplementary materials
   - links to kaggle competitions from the lecture
   - links to hugging face repos from the lecture
   - other random relevant links
 
-### Table of Contents for the lessons at https://course.fast.ai/
+### Table of Contents for the lessons at <https://course.fast.ai/>
 #### Part 1 (lessons 1-8)
 - 1: [Getting started](https://course.fast.ai/Lessons/lesson1.html)
 - 2: [Deployment](https://course.fast.ai/Lessons/lesson2.html)
@@ -98,44 +99,44 @@ Each lesson link includes:
 ### Repos for the course materials
 #### Course22 - part 1: these are the notebooks for each of the 2022 lectures linked on each lesson of fast.ai:
 - Lesson 1:
-  - fastbook ch1: https://github.com/fastai/fastbook/blob/master/01_intro.ipynb
-  - https://github.com/fastai/course22/blob/master/00-is-it-a-bird-creating-a-model-from-your-own-data.ipynb
-  - https://github.com/fastai/course22/blob/master/01-jupyter-notebook-101.ipynb
+  - fastbook ch1: <https://github.com/fastai/fastbook/blob/master/01_intro.ipynb>
+  - <https://github.com/fastai/course22/blob/master/00-is-it-a-bird-creating-a-model-from-your-own-data.ipynb>
+  - <https://github.com/fastai/course22/blob/master/01-jupyter-notebook-101.ipynb>
 - Lesson 2:
-  - fastbook ch2: https://github.com/fastai/fastbook/blob/master/02_production.ipynb
-  - https://github.com/fastai/course22/blob/master/02-saving-a-basic-fastai-model.ipynb
+  - fastbook ch2: <https://github.com/fastai/fastbook/blob/master/02_production.ipynb>
+  - <https://github.com/fastai/course22/blob/master/02-saving-a-basic-fastai-model.ipynb>
 - Lesson 3:
-  - fastbook ch4: https://github.com/fastai/fastbook/blob/master/04_mnist_basics.ipynb
-  - https://github.com/fastai/course22/blob/master/03-which-image-models-are-best.ipynb
-  - https://github.com/fastai/course22/blob/master/04-how-does-a-neural-net-really-work.ipynb
-  - titanic spreadsheet: https://github.com/fastai/course22/blob/master/xl/titanic.xlsx
+  - fastbook ch4: <https://github.com/fastai/fastbook/blob/master/04_mnist_basics.ipynb>
+  - <https://github.com/fastai/course22/blob/master/03-which-image-models-are-best.ipynb>
+  - <https://github.com/fastai/course22/blob/master/04-how-does-a-neural-net-really-work.ipynb>
+  - titanic spreadsheet: <https://github.com/fastai/course22/blob/master/xl/titanic.xlsx>
 - Lesson 4:
-  - fastbook ch10: https://github.com/fastai/fastbook/blob/master/10_nlp.ipynb
-  - https://www.kaggle.com/code/jhoward/getting-started-with-nlp-for-absolute-beginners
+  - fastbook ch10: <https://github.com/fastai/fastbook/blob/master/10_nlp.ipynb>
+  - <https://www.kaggle.com/code/jhoward/getting-started-with-nlp-for-absolute-beginners>
 - Lesson 5:
-  - fastbook ch4: https://github.com/fastai/fastbook/blob/master/04_mnist_basics.ipynb
-  - fastbook ch9: https://github.com/fastai/fastbook/blob/master/09_tabular.ipynb
-  - https://github.com/fastai/course22/blob/master/05-linear-model-and-neural-net-from-scratch.ipynb
-  - https://github.com/fastai/course22/blob/master/06-why-you-should-use-a-framework.ipynb
-  - https://github.com/fastai/course22/blob/master/07-how-random-forests-really-work.ipynb
+  - fastbook ch4: <https://github.com/fastai/fastbook/blob/master/04_mnist_basics.ipynb>
+  - fastbook ch9: <https://github.com/fastai/fastbook/blob/master/09_tabular.ipynb>
+  - <https://github.com/fastai/course22/blob/master/05-linear-model-and-neural-net-from-scratch.ipynb>
+  - <https://github.com/fastai/course22/blob/master/06-why-you-should-use-a-framework.ipynb>
+  - <https://github.com/fastai/course22/blob/master/07-how-random-forests-really-work.ipynb>
 - Lesson 6:
-  - fastbook ch9: https://github.com/fastai/fastbook/blob/master/09_tabular.ipynb
-  - https://github.com/fastai/course22/blob/master/07-how-random-forests-really-work.ipynb
-  - https://github.com/fastai/course22/blob/master/08-first-steps-road-to-the-top-part-1.ipynb
+  - fastbook ch9: <https://github.com/fastai/fastbook/blob/master/09_tabular.ipynb>
+  - <https://github.com/fastai/course22/blob/master/07-how-random-forests-really-work.ipynb>
+  - <https://github.com/fastai/course22/blob/master/08-first-steps-road-to-the-top-part-1.ipynb>
 - Lesson 7:
-  - fastbook ch8: https://github.com/fastai/fastbook/blob/master/08_collab.ipynb
-  - https://github.com/fastai/course22/blob/master/09-small-models-road-to-the-top-part-2.ipynb
-  - https://github.com/fastai/course22/blob/master/10-scaling-up-road-to-the-top-part-3.ipynb
+  - fastbook ch8: <https://github.com/fastai/fastbook/blob/master/08_collab.ipynb>
+  - <https://github.com/fastai/course22/blob/master/09-small-models-road-to-the-top-part-2.ipynb>
+  - <https://github.com/fastai/course22/blob/master/10-scaling-up-road-to-the-top-part-3.ipynb>
 - Lesson 8:
-  - fastbook ch13: https://github.com/fastai/fastbook/blob/master/13_convolutions.ipynb
-  - https://github.com/fastai/course22/blob/master/xl/collab_filter.xlsx
-  - https://github.com/fastai/course22/blob/master/xl/conv-example.xlsx
+  - fastbook ch13: <https://github.com/fastai/fastbook/blob/master/13_convolutions.ipynb>
+  - <https://github.com/fastai/course22/blob/master/xl/collab_filter.xlsx>
+  - <https://github.com/fastai/course22/blob/master/xl/conv-example.xlsx>
 - Bonus: Data Ethics
-  - fastbook ch3: https://github.com/fastai/fastbook/blob/master/03_ethics.ipynb
+  - fastbook ch3: <https://github.com/fastai/fastbook/blob/master/03_ethics.ipynb>
 
 #### Course22 - Part 2: notebook
-- Notebook repo: https://github.com/fastai/course22p2
-- Link directly to the lesson notebooks: https://github.com/fastai/course22p2/tree/master/nbs
+- Notebook repo: <https://github.com/fastai/course22p2>
+- Link directly to the lesson notebooks: <https://github.com/fastai/course22p2/tree/master/nbs>
 
 #### Fastbook ("the book"): The Practical Deep Learning book chapters that accompany this course, called "Deep Learning for Coders with Fastai and PyTorch: AI Applications Without a PhD"
 - Chapter 1, [Intro](https://github.com/fastai/fastbook/blob/master/01_intro.ipynb)
