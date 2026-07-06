@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Learning Deep Learning: Lesson 3 - draft'
-date: 2026-06-02 15:18 -0400
+date: 2026-06-04
 ---
 
 # Guessing Handwritten Numbers

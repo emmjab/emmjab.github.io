@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learning Practical Deep Learning (fastai)"
-date: 2026-06-03
+date: 2026-06-02
 ---
 
 # Practically learning something deep
