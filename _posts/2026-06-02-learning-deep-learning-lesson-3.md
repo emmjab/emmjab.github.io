@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Learning Deep Learning: Lesson 3 - draft'
+title: 'digit classifying in Lesson 3 - draft'
 date: 2026-06-04
 ---
 

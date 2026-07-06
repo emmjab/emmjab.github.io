@@ -1,6 +1,6 @@
 ---
 layout: post
-title: cloud classifying
+title: cloud classifying in Lesson 2
 date: 2026-06-03 15:35 -0400
 ---
 
