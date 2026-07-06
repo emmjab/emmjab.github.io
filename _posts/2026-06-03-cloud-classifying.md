@@ -6,7 +6,7 @@ date: 2026-06-03 15:35 -0400
 
 # Classifying some clouds online
 
-## This is a stream of consciousness version of my process for getting the cloud model i trained online
+*This is a stream of consciousness version of my process for getting the cloud model i trained online.*
 
 TL;DR try out the model I fine-tuned for classifying clouds at [Deep Learning Learning space](https://huggingface.co/spaces/emmjab/dllearning) on huggingface.
 

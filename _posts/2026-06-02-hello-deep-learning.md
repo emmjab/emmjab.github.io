@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hello World"
+title: "Learning Practical Deep Learning (fastai)"
 date: 2026-06-03
 ---
 
