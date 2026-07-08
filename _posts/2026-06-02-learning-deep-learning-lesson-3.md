@@ -11,7 +11,7 @@ date: 2026-06-04
 This is my experience with [Lesson 3](https://course.fast.ai/Lessons/lesson3.html) of the 
 Practical Deep Learning course. If you're just tuning in, I'm working through this material 
 in a study group while doing a half-batch at [The Recurse Center](https://www.recurse.com/) 
-in May/June 2026. See [Learning Practical Deep Learning (fastai)](2026-06-02-hello-deep-learning.md) for why.
+in May/June 2026. See [Learning Practical Deep Learning (fastai)](https://emmjab.github.io/2026/06/02/hello-deep-learning.html) for why.
 
 The lessons for Practical Deep Learning are about learning by doing. *Doing* means writing code to 
 create, run, and analyze the results of models. The authors thought this would be an effective way for 
@@ -28,7 +28,7 @@ breakthrough with "residual" or "skip" connections in 2015, and what kind of cla
 general models like ResNet on particular labeled image datasets suited to your own purposes. You can try out my 
 cloud classifying model (fine-tuned from ResNet-18 using clouds sourced from duck duck go) [here](https://huggingface.co/spaces/emmjab/dllearning?logs=container), 
 see the code [here](https://huggingface.co/spaces/emmjab/dllearning/tree/main), and read a stream of 
-consciousness blog post of me getting the model into a hugging face repo and website [here](2026-06-03-cloud-classifying.md).
+consciousness blog post of me getting the model into a hugging face repo and website [here](https://emmjab.github.io/2026/06/03/cloud-classifying.html).
 
 ## Handwritten digits - MNIST dataset
 
