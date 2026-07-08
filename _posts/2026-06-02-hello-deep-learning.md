@@ -167,7 +167,7 @@ There seem to be two paths for a researcher:
 - choose a particular field and spend years becoming a domain expert
 - choose to become adept in using and developing techniques for processing data, and be domain agnostic
 
-On the path:
+On the way:
 - domain-oriented people end up learning data processing techniques used in their fields
 - technique-oriented people end up learning about the data in domains in which they embed
 
