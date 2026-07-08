@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'digit classifying in Lesson 3 - draft'
+title: 'digit classifying in Lesson 3'
 date: 2026-06-04
 ---
 
@@ -69,7 +69,7 @@ Unpacking the variables, we have:
 - `w1`, `b1`; `w2`, `b2` => vectors of parameters that we initialize randomly; in the training loop they will get "trained" into different values
 
 Unpacking the functions, we have:
-- `res = xb@w1 + b1` => this is just `y = mx+b`, the equation for a line; more on the parameters `w1` & `b2` later, but the 1st dimension has to match the number of pixels in one image and the 2nd corresponds to our choice of "activations"
+- `res = xb@w1 + b1` => this is just `y = mx+b`, the equation for a line; more on the parameters `w1` & `b1` later, but the 1st dimension has to match the number of pixels in one image and the 2nd corresponds to our choice of "activations"
 - `res = res.max(tensor(0.0))` => this is the ReLU - any negative numbers are clipped to 0; this is how we get the output of a series of linear transformations to be something else than a different linear function with some other choice of parameters
 - `res = res@w2 + b2` => this is just `y = mx+b` again, but the 1st dimension of `w2` & `b2` has to match the activation number we chose before, and the 2nd has to match the number of classes we want at the end, e.g. 1 if we're just guessing 3s or 7s, because `res` is now comprised of "logits" which we can convert to a probabilities of belonging to a particular class
 
@@ -86,7 +86,7 @@ under the hood.
 ### The loss function
 At the heart of the training loop is the loss function. We will be happy if we calculate a smaller and smaller loss 
 at the end of each training loop, because the loss for each image is smaller the closer we are to 100% certain of our 
-prediction of `7`for an an image actually labeled `7`.
+prediction of `7`for an image actually labeled `7`.
 
 In each run of the training loop, we execute our model on a batch of training data and parameters, and send the results (the 
 tensor of raw output scores ("logits")) into a "loss function" of our choosing. We can write many different loss functions, 
@@ -140,7 +140,7 @@ from this loss how to change the parameters (the matrix of weights `w1`, `w2` an
 next training loop.
 
 How do we do that? Instead of using the loss value itself, we evaluate the slope of the loss function at each parameter's 
-initial value. The slope determines *how much* and in *which direction* we should modify the parameters to minimize the loss
+current value. The slope determines *how much* and in *which direction* we should modify the parameters to minimize the loss
 for next time. We get the slope at a given point (parameter value) by taking the derivative of the function and evaluating 
 it at that point. Because our loss function depends on multiple parameters (four in our case), we take partial derivatives 
 with respect to each parameter. All of these partial derivatives taken together are called the gradient. Hence, the "gradient 
@@ -159,18 +159,18 @@ from the loss function possible.
 
 ### How .requires_grad_() and .backwards() work; or, how to take partial derivs of the loss function to get the gradient
 When a tensor is updated with `.requires_grad_()`, it gains the attributes `.is_leaf=True` and `.grad=None`. When this 
-tensor participates in a calculation, the result is given two things:
-- a `.grad_fn` attribute which is the gradient of the last operation that produced it (e.g. `AddBackward0`, `MulBackward0`, `PowBackward0`, `SigmoidBackward0`, `ReluBackward0`, `LogSoftmaxBackward0`, `NllLossBackward0` (negative log likelihood), etc.), 
+tensor first participates in a calculation, the result is given two things:
+- a `.grad_fn` attribute which is the gradient function of the last operation that produced it (e.g. `AddBackward0`, `MulBackward0`, `PowBackward0`, `SigmoidBackward0`, `ReluBackward0`, `LogSoftmaxBackward0`, `NllLossBackward0` (negative log likelihood), etc.), 
 - and a `.grad_fn.next_functions` attribute which points to the leaf node (`AccumulateGrad`).
 
-When the result participates in another calculation, the next result also gets a `.grad_fn` which is the gradient of the 
-last function that produced it, and a `.grad_fn.next_functions` which points to the grad functions from the previous result 
-rather than directly to the leaf node. And so on.
+When the result participates in another calculation, the next result also gets a `.grad_fn` which is the gradient function 
+of the last function that produced it, and a `.grad_fn.next_functions` which points to the gradient functions from the 
+previous result rather than directly to the leaf node. And so on.
 
 When `.backwards()` is called on a result down the line, the gradients will be calculated and assembled by moving backwards
 up the chain of functions, with chain rule, accumulating the results in place into the `.grad` attribute of the tensors 
 originally set up with `.requres_grad_()` (our parameters). As each gradient calculation occurs, the tensor's `.grad_fn` 
-attribute is cleared. What's left is the value in `.grad` for the parameters, the same shape as the parameter itself, 
+stored computation buffers are released from memory. What's left is the value in `.grad` for the parameters, the same shape as the parameter itself, 
 which we can use to update the weights. We'll talk about how in a bit. Once we do that we'll need to manually clear out 
 the gradient with `.grad.zero_()` to prepare for the next training loop.
 
@@ -332,11 +332,14 @@ def validate_epoch(model):
 And then we can wrap all of this up in a loop where we choose how many epochs (full run through all the data) we want to 
 train for. The more epochs, the longer the training process will take:
 ```
-def train_and_validate_model(n_epochs):
+def train_and_validate_model(model, lr, n_epochs):
 
-    params = init_params()
+    params = init_all_params() # set the w1, b1, w2, b2 with init_params() for the proper sizes (see above)
     
     for epoch in range(n_epochs):
         train_epoch(model, lr, params)  # prints training loss
         validate_epoch(model)           # prints validation loss & validation accuracy
 ```
+
+Ok that was way longer and more involved than I intended to get in this post. Do you ... want to see how
+this model performs on some handwritten images now?
