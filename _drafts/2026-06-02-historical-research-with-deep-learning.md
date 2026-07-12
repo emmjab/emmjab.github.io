@@ -69,3 +69,64 @@ Common ones by problem type:
   The choice of metric is driven by what actually matters for the problem — F1 when class imbalance
   matters, RMSLE when you care more about relative than absolute error, etc. One of the first things to
   do on any Kaggle competition is understand why they chose that specific metric.
+  
+## Mess from writing up lesson 4: patent NLP
+## HISTORY. PUT SOMEWHERE LATER
+
+RNNs (for text) and CNNs (for images) have historically been two distinct lineages of deep learning model architecture, 
+though today the principles of recurrence exist in a range of contemporary models. The transformer architecture, introduced
+with its catchy title, ["Attention is all you Need" (2017)](https://arxiv.org/abs/1706.03762), was a recent development 
+on the RNN lineage. Researchers had long been chasing improvements to the reigning language model architecture, [Long Short-Term Memory (LSTM)](https://deeplearning.cs.cmu.edu/S23/document/readings/LSTM.pdf), 
+introduced in 1997 to fix issues with overfitting, 
+-- the issue The original fastbook NLP lesson, [(chapter 10)](https://github.com/fastai/fastbook/blob/master/10_nlp.ipynb) 
+was based on a training strategy called [ULMFiT](https://arxiv.org/abs/1801.06146) (Universal Language Model Fine-Tuning) 
+developed by Jeremy Howard, together with Sebastian Ruder, that vastly improved LSTM by mimicking the successes of vision 
+model transfer learning. When they developed ULMFiT, they used Salesforce Research's state-of-the-art [AWD-LSTM](https://docs.fast.ai/text.models.awdlstm.html), 
+which, like transformers, was also [introduced in 2017](https://arxiv.org/abs/1708.02182). The model was named for its 
+components:
+- **A**verage-SGD (Stochastic Gradient Descent), 
+- **W**eight-**D**ropped,
+- **LSTM** (Long Short-Term Memory)
+
+
+The path to Transfomers for langauge tasks (classification, generation, translation, etc.) can be paralleled with the path 
+to ResNet for image classification.
+While ResNet was developed using the ImageNet dataest, 
+Penn Treebank (PTB). PTB was a tiny, heavily cleaned dataset of 1989 Wall Street Journal articles. It had a restricted vocabulary of only 10,000 words. 
+
+In 2017-2018, these improved LSTMs reigned, but by the time Jeremy Howard prepared the 2022 version of lectures, it was 
+clear transformers had won out.
+
+
+"Unlike a traditional deep neural network, which uses different parameters at each layer, RNN shares the same parameters 
+(above) across all steps. This reflects the fact that we are performing the same task at each step, just with different 
+inputs. This greatly reduces the total number of parameters we need to learn."
+FINISH THE HISTORY SECTION LATER, it's too interesting for right now. Remember this happened last time.
+
+Researchers made many improvements to RNNs , trying to remove the shortcomings of LSTMs onwards from 
+their [debut in 1997](https://deeplearning.cs.cmu.edu/S23/document/readings/LSTM.pdf). Similar to ResNet development, text
+datasets were developed as
+
+
+relationship, researchers came up with Recurrent Neural Networks (RNNs). The main difference between CNNs and RNNs is that
+CNNs have different weights between layers, and in an RNN the weights are shared between layers.
+
+The model's task will be to predict the next word, which is initially hidden (just like the label of image training dataset); but then the next word will be sent into
+the model! Thus, the model learns the correct "label" for each word before the end of the batch, and that knowledge is 
+baked into the parameters with backpropogation at the end of the training loop. Here was the tension for NLP models: 
+needing to "remember" sequential relationships between words, including grammars that control words that are not next to each 
+other and pronouns whose meanings carry between sentences, but not overfitting. This kind of challenge doesn't exist for 
+image classifying.
+
+=======
+
+
+i like this paragraph that i wrote but it's not exactly correct:
+Lesson 4 is the NLP lesson. Here we move from vision models (trained to pick out features of images) to natural language 
+processing models (trained to pick out features of text). Since researchers have produced vision models that perform so 
+well (e.g. the ResNet from 2015 that we met earlier), wouldn't it be great to just figure out how to make documents 
+of text fit into the same kinds of tensors of numbers that we used for encoding the images (normalized pixel values), and 
+send it through those models? "Why yes, that would be a great strategy!" say the authors of the course, as Jeremy Howard 
+and Sebastian Ruder proceeded to create what would have been the state-of-the-art training method for Recurrent Neural 
+Networks (RNNs) like Long Short-Term Memory (LSTM) in 2018, had `transformers` in the form of OpenAI's GPT (June) and 
+Google's BERT (October) not been released the same year.
