@@ -26,7 +26,8 @@ learning for text? "Why yes, that would be a great idea!" say the authors of the
 Ruder proceeded to create what would have been a state-of-the-art transfer learning method to use on Recurrent Neural Network 
 architectures like Long Short-Term Memory (LSTM). But competition was steep! In 2017, the `transformer` architecture hit 
 the scene with its catchy academic title, ["Attention is all you Need"](https://arxiv.org/abs/1706.03762). Implementations 
-swiftly followed in 2018: OpenAI's GPT (June) and Google's BERT (October).
+swiftly followed in 2018: OpenAI's [GPT](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf) 
+(June) and Google's [BERT](https://arxiv.org/abs/1810.04805) (October).
 
 This lesson is a great example of the authors sticking to their goal of showing students deep learning methods are still 
 in active development. The 2020 version of the NLP lesson ([fastbook chapter 10](https://github.com/fastai/fastbook/blob/master/10_nlp.ipynb)) 
@@ -180,7 +181,7 @@ explored most of these.
 Anyway... voila! The submission runs, and you get a "public" and a "private" score -- at least for the already-over competitions. 
 You can select your best attempts to submit to the private leaderboard if the competition is still active, I think.
 
-In a sec I'll link to my kaggle notebook where I did all of this.
+Here's [my kaggle notebook](https://www.kaggle.com/code/emmjab/patent-phrase-similarity-lesson-4) where I did all of this.
 
 ## End Notes
 ### Why Transformers? (image models vs text models)
