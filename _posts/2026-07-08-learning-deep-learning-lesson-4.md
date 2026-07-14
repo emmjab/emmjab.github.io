@@ -1,10 +1,10 @@
 ---
 layout: post
-title: US patent classifying in Lesson 4
+title: US patent phrase classifying in Lesson 4
 date: 2026-07-08 21:53 -0400
 ---
 
-# Intro to Huggingface Transformers via a US Patent Classification Task
+# Intro to Transformers via a US Patent Phrase Similarity Scoring
 
 **This post is part of my Practical Deep Learning journey.**
 
@@ -23,9 +23,10 @@ downloaded from duck duck go.
 
 Text can models take much longer to run than image models (more on this later) -- so wouldn't it make sense to try transfer 
 learning for text? "Why yes, that would be a great idea!" say the authors of the course in 2018, as Jeremy Howard and Sebastian 
-Ruder proceeded to create what would have been a state-of-the-art transfer learning method for Recurrent Neural 
-Networks (RNNs) like Long Short-Term Memory (LSTM), if `transformers` in the form of OpenAI's GPT (June) and Google's 
-BERT (October) had not been released that same year.
+Ruder proceeded to create what would have been a state-of-the-art transfer learning method to use on Recurrent Neural Network 
+architectures like Long Short-Term Memory (LSTM). But competition was steep! In 2017, the `transformer` architecture hit 
+the scene with its catchy academic title, ["Attention is all you Need"](https://arxiv.org/abs/1706.03762). Implementations 
+swiftly followed in 2018: OpenAI's GPT (June) and Google's BERT (October).
 
 This lesson is a great example of the authors sticking to their goal of showing students deep learning methods are still 
 in active development. The 2020 version of the NLP lesson ([fastbook chapter 10](https://github.com/fastai/fastbook/blob/master/10_nlp.ipynb)) 
@@ -39,7 +40,8 @@ to classify the sentiment of a subset of IMDb reviews, like we had classified im
 Fine-tuning with the IMDb reviews improved the model's ability to classify sentiment, because the Wikipedia vocabulary 
 would be augmented with IMDb-specific words and contexts.
 
-By 2022, the transformer architecture was outperforming LSTMs. The authors responded by [building a new NLP lesson](https://www.kaggle.com/code/jhoward/getting-started-with-nlp-for-absolute-beginners) 
+By 2022, the transformer architecture was outperforming ULMFiT-assisted AWD-LSTMs. The authors responded by 
+[building a new NLP lesson](https://www.kaggle.com/code/jhoward/getting-started-with-nlp-for-absolute-beginners) 
 using the [huggingface transformer library](https://huggingface.co/docs/transformers/en/index). The lesson's task was to 
 try to score well on a [US Patent kaggle competition](https://www.kaggle.com/competitions/us-patent-phrase-to-phrase-matching/) 
 (active Mar-June 2022) using a transformer model. The competition task was to compute similarity scores for pairs of phrases 
@@ -135,7 +137,8 @@ The basic steps are the following:
    1. check your predictions -- we had some <0 and >1 values but the submission expects `preds = np.clip(preds, 0, 1)`
    1. create the `submissions.csv` file with the ids and scores (`preds`) columns
 
-In a sec I'll link to my jupyter notebook where I did all of this.
+Here's the [jupyter notebook]({% link patent-nlp-notebook.md %}) where I did all of this. It also involved a lot of
+figuring out values that worked on my macbook pro instead of a GPU.
 
 ## Submitting the similarity scores to Kaggle
 So... submitting the similarity score csv to Kaggle was actually pretty confusing at first. I thought I could just upload 
