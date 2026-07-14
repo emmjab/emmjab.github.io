@@ -4,7 +4,7 @@ title: patent phrase similarity scoring in Lesson 4
 date: 2026-07-08 21:53 -0400
 ---
 
-# Intro to Transformers via a US Patent Phrase Similarity Scoring
+# Intro to Transformers by scoring similarities in US Patent Phrases
 
 **This post is part of my Practical Deep Learning journey.**
 
@@ -13,7 +13,7 @@ Practical Deep Learning course. If you're just tuning in, I'm working through th
 in a study group while doing a half-batch at [The Recurse Center](https://www.recurse.com/) 
 in May/June 2026. See [Learning Practical Deep Learning (fastai)](https://emmjab.github.io/2026/06/02/hello-deep-learning.html) for why.
 
-Lesson 4 is the Natural Langauge Processing (NLP) lesson. Here we move from vision models (which learn features of images, 
+Lesson 4 is the Natural Language Processing (NLP) lesson. Here we move from vision models (which learn features of images, 
 e.g. for image label prediction) to NLP models (which learn features of text, e.g. for next word prediction). 
 Many novel applied computer vision tasks no longer require models trained from scratch. Instead, researchers can start 
 from freely available models that were pretrained using huge datasets and lots of compute, and fine-tune them with datasets
@@ -21,25 +21,25 @@ specific to the novel task. This is called "transfer learning"; I practiced it i
 ResNet trained on ImageNet (available in the pytorch library), and fine-tuned it on [different types of clouds](https://emmjab.github.io/2026/06/03/cloud-classifying.html))
 downloaded from duck duck go.
 
-Text can models take much longer to train than image models (more on this later) -- so wouldn't it make sense to try transfer 
+Text models can take much longer to train than image models (more on this later) -- so wouldn't it make sense to try transfer 
 learning for text? "Why yes, that would be a great idea!" say the authors of the course in 2018, as Jeremy Howard and Sebastian 
-Ruder proceeded to create what would have been a state-of-the-art transfer learning method to use on Recurrent Neural Network 
+Ruder proceeded to create what might have remained a state-of-the-art transfer learning method to use on Recurrent Neural Network 
 architectures like Long Short-Term Memory (LSTM). But competition was steep! In 2017, the `transformer` architecture hit 
 the scene with its catchy academic title, ["Attention is all you Need"](https://arxiv.org/abs/1706.03762). Implementations 
 swiftly followed in 2018: OpenAI's [GPT](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf) 
 (June) and Google's [BERT](https://arxiv.org/abs/1810.04805) (October).
 
-This lesson is a great example of the authors sticking to their goal of showing students deep learning methods are still 
+This lesson is a great example of the authors sticking to their goal of showing students that deep learning methods are still 
 in active development. The 2020 version of the NLP lesson ([fastbook chapter 10](https://github.com/fastai/fastbook/blob/master/10_nlp.ipynb)) 
 was built on the state-of-the-art RNN at the time, a [Long Short-Term Memory (LSTM) model](https://deeplearning.cs.cmu.edu/S23/document/readings/LSTM.pdf) 
 called [AWD-LSTM](https://arxiv.org/abs/1708.02182) released by Salesforce Research in 2017. The fastai authors had been
 inspired by the success of transfer learning for image models, and developed a training strategy called [ULMFiT](https://arxiv.org/abs/1801.06146) 
-(Universal Language, Model Fine-Tuning) for transfer learning for language models. The lesson used ULMFiT with the AWD-LSTM
+(Universal Language Model Fine-Tuning) for transfer learning for language models. The lesson used ULMFiT with the AWD-LSTM
 model trained on a Wikipedia dataset ([WikiText-103](https://arxiv.org/abs/1609.07843), 103 million tokens), and involved
 fine-tuning with [50k IMDb (Internet Movie Database) movie reviews](https://aclanthology.org/P11-1015.pdf). The goal was 
 to classify the sentiment of a subset of IMDb reviews, like we had classified images as dogs, cats, etc. in a prior lesson.
 Fine-tuning with the IMDb reviews improved the model's ability to classify sentiment, because the Wikipedia vocabulary 
-would be augmented with IMDb-specific words and contexts.
+would be augmented with IMDb-specific words and contexts, as well as style, syntax, and sentence structure.
 
 By 2022, the transformer architecture was outperforming ULMFiT-assisted AWD-LSTMs. The authors responded by 
 [building a new NLP lesson](https://www.kaggle.com/code/jhoward/getting-started-with-nlp-for-absolute-beginners) 
@@ -96,14 +96,14 @@ and "Television set") found in US patents, given particular categories:
 - 0.25 - Somewhat related, e.g. the two phrases are in the same high level domain but are not synonyms. This also includes antonyms.
 - 0.0 - Unrelated.
 
-Bot of these tasks could be either regression or classification tasks. Even though transformer model classes are numbers, 
+Both of these tasks could be either regression or classification tasks. Even though transformer model classes are numbers, 
 they're not continuous -- they look a lot like the MNIST handwritten digit classes we predicted in the last lesson. And 
 even though the sentiments are words ("pos" and "neg"), we could also see them as values between 0 and 1, pinned to 0 if 
 <0.5 and 1 if >0.5.
 
 For the transformer lesson, the authors chose to set num_labels = 1 for the model. Just one label means they chose the 
 regression. I think I missed the explanation, but it's probably because they want the model to learn the ordinal relationships
-from 1 to 5. Smaller and larger similarity scores mean something -- better and worse similarities; they're not just 
+from 0 to 1. Smaller and larger similarity scores mean something -- better and worse similarities; they're not just 
 re-orderable categories.
 
 ## NLP: fine-tuning a transformer model: Patent phrase similarities
@@ -195,7 +195,7 @@ these relationships are more "before/after" and "earlier/later" than "up/down" a
 or "sequential" or "ordered". To train a model for next word prediction, instead of e.g. inputting a randomly ordered list 
 of sentence fragments from our dataset (if sentence fragment ~ image), we send ordered chunks of the document through 
 the model, word by word. Unlike dirs full of dog pics and cat pics, the sentences in a document and the words in a sentence 
-depend on each other. When LSTMs send tokens through sequentially, the model immediately compares its prediction with the 
+depend on each other. When LSTMs send tokens through sequentially, the model compares its prediction with the 
 actual next token, and this error is backpropagated. It's like guessing cloud and then baking in "yes that's a cloud" into 
 the parameters.
 
@@ -210,7 +210,7 @@ hidden state to encode long-distance relationships so information can be carried
 are processed one at a time through the document. Instead of a recurrent hidden state, the transformer model includes layers
 whose parameters encode long-distance relationships by calculating how much attention a word should pay to many other words 
 (e.g. every previous word) in a given context window. That "attention" to other words is called "self-attention" (I guess
-because it's assigned to itself?). Perhaps obvious to note, this "self-attention" approach means the transformer model is doing
+because it's the view from itself?). Perhaps obvious to note, this "self-attention" approach means the transformer model is doing
 mannny manyyyy pairwise token calculations, but luckily these can be parallelized.
 
 ### Benchmark datasets and metrics for NLP
@@ -222,10 +222,10 @@ translation, "named-entity recognition" (NER), part of speech tagging, question 
 Each of these tasks is associated with particular curated benchmark datasets to evaluate model performance. For next-token
 prediction, the typical metric is "perplexity", or how surprised the model is by the correct next token in e.g. the 
 [Penn Treebank](https://huggingface.co/datasets/FALcon6/ptb_text_only) - a million words of 1989 Wall Street Journal material, 
-[WikiText-2](https://huggingface.co/datasets/mindchain/wikitext2) - a hundred million tokens from good/featured articles 
+[WikiText-2](https://huggingface.co/datasets/mindchain/wikitext2) - 2 million tokens from good/featured articles 
 on wikipedia, and [WikiText-103](https://huggingface.co/datasets/Salesforce/wikitext) - 103 million tokens datasets.
 
 In 2018, just before transformer models were being released, researchers developed a benchmark called General Language 
-Understanding Evaluation ([GLUE](https://arxiv.org/abs/1804.07461) so models could be evaluated on performance over all 
-these independent tasks. Soon after, when BERT smashed all the performance records, so researchers developed 
+Understanding Evaluation ([GLUE](https://arxiv.org/abs/1804.07461)) so models could be evaluated on performance over all 
+these independent tasks. Soon after, BERT smashed all the performance records. Researchers responded by developing 
 [SuperGLUE](https://arxiv.org/abs/1905.00537) to evaluate model performance on more difficult tasks.
