@@ -138,7 +138,7 @@ The basic steps are the following:
    1. check your predictions -- we had some <0 and >1 values but the submission expects `preds = np.clip(preds, 0, 1)`
    1. create the `submissions.csv` file with the ids and scores (`preds`) columns
 
-Here's the [jupyter notebook]({% link patent-nlp-notebook.md %}) where I did all of this. It also involved a lot of
+Here's the [jupyter notebook](/notebooks/patent-nlp-notebook.html) where I did all of this. It also involved a lot of
 figuring out values that worked on my macbook pro instead of a GPU.
 
 ## Submitting the similarity scores to Kaggle
