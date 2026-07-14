@@ -21,7 +21,7 @@ specific to the novel task. This is called "transfer learning"; I practiced it i
 ResNet trained on ImageNet (available in the pytorch library), and fine-tuned it on [different types of clouds](https://emmjab.github.io/2026/06/03/cloud-classifying.html))
 downloaded from duck duck go.
 
-Text can models take much longer to run than image models (more on this later) -- so wouldn't it make sense to try transfer 
+Text can models take much longer to train than image models (more on this later) -- so wouldn't it make sense to try transfer 
 learning for text? "Why yes, that would be a great idea!" say the authors of the course in 2018, as Jeremy Howard and Sebastian 
 Ruder proceeded to create what would have been a state-of-the-art transfer learning method to use on Recurrent Neural Network 
 architectures like Long Short-Term Memory (LSTM). But competition was steep! In 2017, the `transformer` architecture hit 
