@@ -1,6 +1,6 @@
 ---
 layout: post
-title: US patent phrase classifying in Lesson 4
+title: patent phrase similarity scoring in Lesson 4
 date: 2026-07-08 21:53 -0400
 ---
 
