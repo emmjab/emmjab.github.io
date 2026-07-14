@@ -3,6 +3,7 @@ layout: post        # or 'page' depending on your theme setup
 title: "Jupyter Notebook for Lesson 4 US Patent Phrase Similarities"
 date: 2026-07-13    # optional, helpful if placing in the _posts folder
 permalink: /patent-nlp-notebook/
+nav_exclude: true
 ---
 
 
