@@ -98,11 +98,13 @@ Let's say we have a dataset with 100 rows and four columns. The columns are "id"
 and "price" (dollars). "price" is the dependent variable. To decide how best to partition the "age" column into two groups, 
 we would sort from youngest to oldest. Then, we would create a list of pairs of groups by moving a partition systematically
 across the values in the column. If age were [1,7], we would make 6 pairs of row-groups:
-- partition A: group 1: 1      | group 2: 234567
-- partition B: group 1: 12     | group 2: 34567
-- partition C: group 1: 123    | group 2: 4567
-- ...
-- partition F: group 1: 123456 | group 2: 7
+```
+partition A: group 1: 1      | group 2: 234567 
+partition B: group 1: 12     | group 2: 34567
+partition C: group 1: 123    | group 2: 4567
+...
+partition F: group 1: 123456 | group 2: 7
+```
 
 For a given partition A, we would predict that the sale price for a given row in group 1 is the average sale price for all 
 the rows in group 1; similarly the sale price for a given row in group 2 is the average sale price for all the rows in 
@@ -133,12 +135,11 @@ What the lesson *does* talk about is how we don't need to make embedding vectors
 the same kind of partitioning of the ordinal values is good enough, meaning that [according to this 2019 paper](https://peerj.com/articles/6339/) 
 the ordinal partitioning method apparently finds the same best-split as using embeddings.
 
-## Preparing tabular data for a decision tree, and systematically reducing the number of columns to investigate
-
-The jupyter notebook (fastbook 9) for this lesson was full of methods for interrogating the model and understanding the 
-predictions by the contributions of each of the columns and column values. There were also more than a few places where 
-updates to `scikit-learn`, `pandas`, and some visualization libraries meant I had to figure out ways to reproduce the 
-authors' lessons with newer or alternative versions of these libraries.
+## Preparing tabular data for decision trees and random forests
+The jupyter notebook for this lesson, [fastbook lesson 9](https://github.com/fastai/fastbook/blob/master/09_tabular.ipynb),
+was full of methods for interrogating the model and understanding the predictions by the contributions of each of the columns 
+and column values. There were also more than a few places where updates to `scikit-learn`, `pandas`, and some visualization 
+libraries meant I had to figure out ways to reproduce the authors' lessons with newer or alternative versions of these libraries.
 
 For this reason, I ended up writing a lot of notes and quotes from the original lesson in my local jupyter notebook where I 
-executed the cells. You can find mine [here](/notebooks/bulldozers-tabular-notebook.html) and the original lesson [here](https://github.com/fastai/fastbook/blob/master/09_tabular.ipynb).
+executed the cells. So, that's [here](/notebooks/bulldozers-tabular-notebook.html).
