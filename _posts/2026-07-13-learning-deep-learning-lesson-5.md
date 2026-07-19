@@ -1,6 +1,6 @@
 ---
 layout: post
-title: auction sale price predicting in lessons 5&6
+title: auction sale price predicting in Lessons 5&6
 date: 2026-07-13 22:28 -0400
 ---
 
