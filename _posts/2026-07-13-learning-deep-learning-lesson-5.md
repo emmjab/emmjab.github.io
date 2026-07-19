@@ -6,6 +6,8 @@ date: 2026-07-13 22:28 -0400
 
 # Intro to Random Forests with Tabular Data on Bulldozer Sales
 
+**This post is part of my Practical Deep Learning journey.**
+
 This is my experience with [Lesson 5](https://course.fast.ai/Lessons/lesson5.html) and 
 [Lesson 6](https://course.fast.ai/Lessons/lesson6.html) of the Practical Deep Learning 
 course. If you're just tuning in, I'm working through this material in a study group while 
