@@ -130,3 +130,104 @@ send it through those models? "Why yes, that would be a great strategy!" say the
 and Sebastian Ruder proceeded to create what would have been the state-of-the-art training method for Recurrent Neural 
 Networks (RNNs) like Long Short-Term Memory (LSTM) in 2018, had `transformers` in the form of OpenAI's GPT (June) and 
 Google's BERT (October) not been released the same year.
+
+
+The idea was then to give data types to each of the columns, mainly distinguishing "categorical" (like "fiModelDescriptor"), 
+from "continuous" (like "MachineHoursCurrentMeter") variables. Categorical variables could also be ordered, e.g. ProductSize 
+from small to big. Much attention was also paid to methods for handling the dates. The authors expected that there might 
+be e.g. seasonal patterns. So, instead of treating the dates like a continuous increasing number or making each day a unique 
+category, they wrote a function to create a bunch of extra columns representing different parts of the date (e.g. year, 
+month, day) and then more granular things like "day of week".
+
+The lesson also involved discussion on what to do about missing data. In the video lecture, Jeremy gave an example of a 
+case where a particular field was only populated if a sale was completed, and that all sold orders were updated in the db 
+on Sunday. In a case like this, the model might simply learn that if the date is Sunday, then the sale would go through.
+This is unfortunately not useful for predicting whether a sale would happen.
+
+## 
+
+## The Metric
+
+For this task, the metric we're working with is the "root mean squared log error (RMSLE) between the actual and predicted 
+auction prices". So we'll preprocess the SalePrice column to be the log of the SalePrice so when we calculate RMSE later
+it will already be on the log(SalePrice).
+
+## Making a Decision Tree
+
+
+
+ProductGroup == Excavator
+
+
+## ROGII - Wellbore Geology Prediction
+
+// remove this paragraph
+I could continue this post with this data, but I'm itching to start applying what I've learned in these lessons to untried problems. The lessons are great for
+building a mental model from the model (transfer learning??) and for providing a worked example with parameters pre-selected
+to perform well that I can refer to when updating dependencies and trying to make sense of train/validation loss and metrics
+(is .21 good? bad? everything is relative!).
+//
+
+I found an active competition that uses tabular data and has a kind of "timeseries" feel to it, like the bulldozer problem. 
+This is the [ROGII - Wellbore Geology Prediction Competition](https://www.kaggle.com/competitions/rogii-wellbore-geology-prediction).
+I know practically nothing about geology and even less about drilling for oil! So this is mostly just a test of how **well** 
+I can figure out how to apply the tabular data lesson to other problems. Depending on how **well** this goes, I might try 
+to do some research/make improvements to whatever my first pass amounts to. **Well**, let's get started.
+
+Here's the task:
+> The competition data comprises horizontal well trajectories and vertical reference logs (Typewells) used for geological 
+> prediction. Your goal is to predict the TVT (True Vertical Thickness) for the evaluation zone of each horizontal well.
+
+The competition organizers ([ROGII](https://rogii.com/)) claim that helping solve this real world problem can make "drilling 
+safer, more efficient, and lower in emissions." ROGII is a Houston, Texas-based software company in the geosteering and geoscience 
+domain that builds sw to help oil and gas "subsurface teams plan, steer, and monitor wells".
+
+### The Data: Gamma Rays detected at intervals
+
+Horizontal Wells with geological formation reference depths from Vertical Type Wells
+
+
+
+## HISTORY OF GEOLOGY; maybe add it in and the earthquake cold war document but not right now
+
+Geology research gained individual recognition in the US government in 1878-1879 when the US Geological Survey was 
+separated out from the US Coast and Interior Survey; both of these surveys were to report their findings to the 
+Land Office "for the purposes of intelligent administration". [*Surveys of the territories.*](https://hdl.loc.gov/loc.law/llserialsetce.01861_00_00-006-0005-0000)
+*Letter from the acting president of the National Academy of Sciences transmitting a report on the surveys of the territories. December 3, 1878.*
+
+> "The best interests of the public domain require, for the purposes of
+> intelligent administration, a thorough knowledge of its geological struct
+> ure, natural resources, and products. The domain embraces a vast
+> mineral wealth in its soils, metals, salines, stones, clays, &c. To meet
+> the requirements of existing laws in the disposition of the agricultural,
+> mineral, pastoral, timber, desert, and swamp lands, a thorough investi
+> gation and classification of the acreage of the public domain is impera
+> tively demanded. The committee, therefore, recommend that Con
+> gress establish, under the Department of the Interior, an independent
+> organization, to be known as the United States Geological Survey, to be
+> charged with the study of the geological structure and economical re
+> sources of the public domain, such survey to be placed under a director,
+> who shall be appointed by the President, and who shall report directly
+> to the Secretary of the Interior.
+> It should be specially provided that the director and members of the
+> geological survey, charged as they are with the investigation of the
+> natural resources of the public domain, shall have no personal or private
+> interests in the lands or mineral wealth of the region under survey, and
+> shall execute no surveys or examinations for private parties or corpora
+> tions."
+
+in 1879. This was by recommendation in of the National Academy of Sciences. Surveyors would travel westward, checking out rocks for their "geological structure, 
+mineral resources, and products of the national domain". Was there coal or oil to be claimed? Seventy years later, geology
+gained another boost when Cold War nuclear determent policies created a need to be able to better monitor earthquakes.
+
+
+
+
+
+
+======
+history to move later;
+The course 
+authors also included some history of the development of deep learning methods, and I spent some time skimming papers they
+shared and some others to contextualize some of the incentives for these developments. Emphasis on the word "some", because
+if left to my own devices I could spend a long, long time in that rabbit hole.

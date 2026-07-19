@@ -4,7 +4,7 @@ title: 'digit classifying in Lesson 3'
 date: 2026-06-04
 ---
 
-# Guessing Handwritten Numbers
+# Intro to Image Models by Guessing Handwritten Numbers
 
 **This post is part of my Practical Deep Learning journey.**
 
