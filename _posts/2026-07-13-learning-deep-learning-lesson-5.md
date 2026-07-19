@@ -136,10 +136,14 @@ the same kind of partitioning of the ordinal values is good enough, meaning that
 the ordinal partitioning method apparently finds the same best-split as using embeddings.
 
 ## Preparing tabular data for decision trees and random forests
-The jupyter notebook for this lesson, [fastbook lesson 9](https://github.com/fastai/fastbook/blob/master/09_tabular.ipynb),
+The jupyter notebook for this lesson, [fastbook chapter 9](https://github.com/fastai/fastbook/blob/master/09_tabular.ipynb),
 was full of methods for interrogating the model and understanding the predictions by the contributions of each of the columns 
 and column values. There were also more than a few places where updates to `scikit-learn`, `pandas`, and some visualization 
 libraries meant I had to figure out ways to reproduce the authors' lessons with newer or alternative versions of these libraries.
 
 For this reason, I ended up writing a lot of notes and quotes from the original lesson in my local jupyter notebook where I 
 executed the cells. So, that's [here](/notebooks/bulldozers-tabular-notebook.html).
+
+The main things to remember from this lesson are that:
+- random forests are a great way to interrogate tabular data
+- random forests are a great example of an ensemble methods: ways to improve model predictions by combining the results from multiple models with uncorrelated errors
