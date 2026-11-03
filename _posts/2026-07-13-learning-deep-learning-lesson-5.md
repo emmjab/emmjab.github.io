@@ -1,6 +1,6 @@
 ---
 layout: post
-title: auction sale price predicting in Lessons 5&6
+title: deep learning - auction sale price predicting in Lessons 5&6
 date: 2026-07-13 22:28 -0400
 ---
 
@@ -14,10 +14,10 @@ course. If you're just tuning in, I'm working through this material in a study g
 doing a half-batch at [The Recurse Center](https://www.recurse.com/) in May/June 2026. 
 See [Learning Practical Deep Learning (fastai)](https://emmjab.github.io/2026/06/02/hello-deep-learning.html) for why.
 
-In this lesson we're exploring tabular data. One of the points of this lesson is to show that deep learning is not the 
-best machine learning method for all kinds of problems. For instance, for tabular data, decision trees often perform
-pretty well, and you can augment their performance by bagging them into "random forests". Moreover, decision trees are 
-useful because you can visualize them to see which columns are contributing to the performance of the model.
+In this lesson we're exploring tabular data. One of the points of this lesson is to show that deep learning is not 
+necessarily the best machine learning method for every problem. For instance, for tabular data, decision trees often 
+perform pretty well, and you can augment their performance by bagging them into "random forests". Moreover, decision 
+trees are useful because you can visualize them to see which columns are contributing to the performance of the model.
 
 In the first few lessons of the course, we learned how to: 
 - prepare labeled image and unlabeled text datasets
@@ -54,7 +54,7 @@ training, and evaluating the random forest models:
 - the [titanic competition](https://www.kaggle.com/competitions/titanic/data): given a list of passengers on the Titanic and a bunch of data on them (gender, age, ticket cost, etc.), predict whether they survived
 - the [bulldozers competition](https://www.kaggle.com/competitions/bluebook-for-bulldozers/rules): given a list of industrial machines sold at auctions over a given period of time and a bunch of data on them (64 fields, including MachineID, ModelID, YearMade, SaleElapsed, SalePrice), predict the auction price for future sales of those machines
 
-The Titanic dataset is too gruesome for me, so I went with the bulldozers. The thing is, the bulldozers competition is
+The Titanic dataset was too gruesome for me, so I went with the bulldozers. The thing is, the bulldozers competition is
 from 13-14 years ago (!?). The data is no longer on kaggle, and you can't click the "accept the rules" button which you
 usually need to do to get access to the data. With a little googling around, I found that someone else made an ML course 
 using the bulldozers competition and linked [the data in their course repo](https://github.com/mrdbourke/zero-to-mastery-ml/blob/master/data/bluebook-for-bulldozers.zip).
@@ -137,15 +137,15 @@ What the lesson *does* talk about is how we don't need to make embedding vectors
 the same kind of partitioning of the ordinal values is good enough, meaning that [according to this 2019 paper](https://peerj.com/articles/6339/) 
 the ordinal partitioning method apparently finds the same best-split as using embeddings.
 
-## Preparing tabular data for decision trees and random forests
+## Preparing tabular data for decision trees and random forests, creating decision trees and random forests, calculating metrics on their performance, and using them to make predictions
 The jupyter notebook for this lesson, [fastbook chapter 9](https://github.com/fastai/fastbook/blob/master/09_tabular.ipynb),
 was full of methods for interrogating the model and understanding the predictions by the contributions of each of the columns 
 and column values. There were also more than a few places where updates to `scikit-learn`, `pandas`, and some visualization 
 libraries meant I had to figure out ways to reproduce the authors' lessons with newer or alternative versions of these libraries.
 
 For this reason, I ended up writing a lot of notes and quotes from the original lesson in my local jupyter notebook where I 
-executed the cells. So, that's [here](/notebooks/bulldozers-tabular-notebook.html).
+executed the cells. So, [the rest of the blog post continues with my jupyter notebook](/notebooks/bulldozers-tabular-notebook.html).
 
-The main things to remember from this lesson are that:
+The main things to take away:
 - random forests are a great way to interrogate tabular data
 - random forests are a great example of an ensemble methods: ways to improve model predictions by combining the results from multiple models with uncorrelated errors

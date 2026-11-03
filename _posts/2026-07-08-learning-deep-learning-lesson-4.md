@@ -1,6 +1,6 @@
 ---
 layout: post
-title: patent phrase similarity scoring in Lesson 4
+title: deep learning - patent phrase similarity scoring in Lesson 4
 date: 2026-07-08 21:53 -0400
 ---
 

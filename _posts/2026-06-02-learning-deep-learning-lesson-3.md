@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'digit classifying in Lesson 3'
+title: 'deep learning - digit classifying in Lesson 3'
 date: 2026-06-04
 ---
 
